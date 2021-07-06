@@ -1,0 +1,52 @@
+import db from '../models/index';
+import * as bcrypt from 'bcrypt';
+import { generateToken } from './authService';
+import { GeneralError } from '../helpers/GeneralError';
+
+const User = db.User;
+
+export async function loginAsync (email, password) {
+    try {
+        let validUser = await getUserByEmail(email);
+        if (validUser === null) {
+            throw new GeneralError('User not registered', 401);
+        }
+
+        if (!bcrypt.compareSync(password, validUser.password)) {
+            throw new GeneralError('Password donot Match', 401);
+        }
+
+        let token = generateToken(validUser.id);
+
+        delete validUser.dataValues.password;
+        let response = {
+            ...validUser.dataValues,
+            token
+        }
+        console.log(response);
+        return response;
+    } catch(err) {
+        throw err;
+    }
+    
+};
+
+export async function registerAsync (userData) {
+    try {
+        userData.password = bcrypt.hashSync(userData.password, 10);
+        let user = await User.build(userData);
+        await user.save();
+        return user;
+    } catch(err) {
+        throw err;
+    }
+};
+
+async function getUserByEmail(email) {
+    try {
+        let user = await User.findOne({where: {email: email}});
+        return user;
+    } catch (err) {
+        throw err;
+    }
+}

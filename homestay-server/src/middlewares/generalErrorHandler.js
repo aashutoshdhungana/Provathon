@@ -1,9 +1,9 @@
 import { getReasonPhrase, StatusCodes } from "http-status-codes";
-import { GeneralError } from "../__helpers.js/GeneralErrors";
+import { GeneralError } from "../helpers/GeneralError";
 
 export default (err, req, res, next) => {
   if (err instanceof GeneralError) {
-    const statusCode = err.getCode();
+    const statusCode = err.statusCode;
     return res.status(statusCode).json({
       error: getReasonPhrase(statusCode),
       message: err.message,

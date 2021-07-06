@@ -1,6 +1,6 @@
 'use strict';
 import { Model, Sequelize } from 'sequelize';
-export default (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
   var User = sequelize.define('User', {
     userId: {
       type: DataTypes.UUID,
@@ -9,7 +9,7 @@ export default (sequelize, DataTypes) => {
       allowNull: false
 
     },
-    fistName: {
+    firstName: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -36,7 +36,6 @@ export default (sequelize, DataTypes) => {
       allowNull:false,
       validate: {
         notEmpty: true,
-        len: [6, 20]
       }
     },
     phoneNum: {
