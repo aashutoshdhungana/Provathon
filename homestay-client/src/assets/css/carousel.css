@@ -1,0 +1,6 @@
+.image-resize{
+    width:auto;
+    height:80vh;
+    object-fit: cover;
+    object-position: center center;
+}
