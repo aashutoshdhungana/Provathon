@@ -2,47 +2,54 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import { NavLink } from "react-router-dom";
+import { Router } from "react-router";
+import { ImHome, ImUser, ImUserPlus, ImUsers } from "react-icons/im";
 
 function Navbar() {
   return (
     <div>
       <nav class="navbar navbar-expand-lg  navbar-light text-light bg-light">
-        <NavLink exact to="/" class="nav-link">
-          Logo
-        </NavLink>
+        <a class="navbar-brand" href="#">
+          Navbar
+        </a>
         <button
           class="navbar-toggler"
           type="button"
           data-toggle="collapse"
-          data-target="#navbarText"
-          aria-controls="navbarText"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarText">
+        <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <NavLink exact to="/" class="nav-link">
+              <NavLink
+                exact
+                to="/"
+                activeStyle={{ color: "green" }}
+                class="nav-link"
+              >
                 Home
               </NavLink>
             </li>
 
             <li class="nav-item">
-              <NavLink exact to="/search" class="nav-link">
+              <a class="nav-link" href="#">
                 Search
-              </NavLink>
+              </a>
             </li>
             <li class="nav-item">
-              <NavLink exact to="/itenary" class="nav-link">
+              <a class="nav-link" href="#">
                 Itenary
-              </NavLink>
+              </a>
             </li>
             <li class="nav-item">
-              <NavLink exact to="/bookmark" class="nav-link">
-                Bookmarks
-              </NavLink>
+              <a class="nav-link" href="#">
+                Bookmark
+              </a>
             </li>
             <li class="nav-item dropdown">
               <a
@@ -60,7 +67,12 @@ function Navbar() {
                 <a class="dropdown-item" href="#">
                   User
                 </a>
-                <NavLink exact to="/homestaysignin" class="nav-link dropdownpr">
+                <NavLink
+                  exact
+                  to="/homestaysignin"
+                  activeStyle={{ color: "green" }}
+                  class="nav-link dropdownpr"
+                >
                   Homestay
                 </NavLink>
               </div>
