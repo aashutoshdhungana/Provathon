@@ -3,14 +3,22 @@ import Register from "./Register";
 import Login from "./Login";
 import Hsregister from "./Hsregister";
 import Navbar from './Navbar';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Rating from './Rating';
+import Carousel from './Carousel';
+import About from './About';
+import Footer from './Footer';
 function App() {
   return (
     <div>
       {/* <Register /> */}
       {/* <Login /> */}
       <Navbar />
-      <Hsregister/>
+      <Carousel />
+      <About />
+      <Rating />
+      <Footer /> 
+
     </div>
   );
 }
