@@ -6,4 +6,6 @@ router.post('/login', HomestayController.homestayLogin);
 
 router.post('/register', HomestayController.homestayRegister);
 
+router.get('/:id', HomestayController.getHomestayAsync);
+
 module.exports = router;
