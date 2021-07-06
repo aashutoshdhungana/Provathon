@@ -10,6 +10,8 @@ export const homestaysDemo = [
   {
     id: "ae2a6598-9c92-4dc2-8fae-470e24bf0f9d",
     title: "Somani Life Homestay",
+    email: "homestay02@gmail.com",
+    phone: "9876598798",
     discription: `hello,
   i live in old traditional city with my dad, mum and brother.. currently, I am working as a tourist guide..
   my home is just 4 minutes walk from patan durbar square(UNESCO World heritage site).
@@ -25,21 +27,28 @@ export const homestaysDemo = [
       {
         title: "Delux room",
         id: "room-101",
-        description: "Bathroom ensuite (within room) <br> 1 Double Bed",
+        description: `Bathroom ensuite (within room) 1 Double Bed`,
         price: 1200,
         photo: room1,
       },
       {
         title: "single ",
         id: "room-102",
-        description: "Bathroom ensuite (within room) <br> 1 Double Bed",
+        description: `Bathroom ensuite (within room)  1 Double Bed`,
         price: 1200,
         photo: room2,
       },
       {
         title: "double",
         id: "room-103",
-        description: "Bathroom ensuite (within room) <br> 1 Double Bed",
+        description: `Bathroom ensuite (within room) 1 Double Bed`,
+        price: 1200,
+        photo: room3,
+      },
+      {
+        title: "double",
+        id: "room-103",
+        description: `Bathroom ensuite (within room) 1 Double Bed`,
         price: 1200,
         photo: room3,
       },
@@ -61,6 +70,8 @@ export const homestaysDemo = [
   {
     id: "1bd9ae1e-cbdf-47ad-9556-48793baeda45",
     title: "Greenlife homestay",
+    email: "homestay022@gmail.com",
+    phone: "9806590998",
     discription: `Namaste,
   My family consist of 5 members, my mother in law, my husband, 2 kids and myself. At home we speak, Nepali our mother tongue, Newari me (of the dialect of Nepal), English, French and Hindi.
   We are here to help you discover the different cultures, the tradition of Nepal.

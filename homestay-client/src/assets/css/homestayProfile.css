@@ -1,0 +1,34 @@
+.hp-banner {
+  width: 100%;
+  height: 300px;
+}
+
+.hp-banner-title {
+  position: absolute;
+  top: 50%;
+  right: 0px;
+}
+
+span.room-price {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+span.per-night {
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+.room-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 5px;
+  background-color: black;
+  color: white;
+  border-radius: 3px;
+}
+
+.review-stars {
+  font-size: 1rem;
+}
