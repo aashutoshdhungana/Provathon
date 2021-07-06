@@ -17,7 +17,7 @@ function Routers() {
         <Route exact={true} path="/search" component={Search} />
         <Route exact={true} path="/itenary" component={Itenary} />
         <Route exact={true} path="/bookmarks" component={Bookmaks} />
-        <Route exact={true} ptah="/homestaysignin" component={Hslogin} />
+        <Route exact={true} path="/homestaysignin" component={Hslogin} />
       </Switch>
     </Router>
   );

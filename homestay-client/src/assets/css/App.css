@@ -19,3 +19,31 @@ a:visited,
 a:active {
   text-decoration: none;
 }
+
+a{
+  padding:0.5rem 1rem;
+
+}
+.current{
+  color:green;
+}
+.nav-pradip{
+  height:20px;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+.blue{
+  color:blue;
+}
+.bookmark-image{
+  width:auto;
+  height:35vh;
+  object-fit: cover;
+  object-position: center center;
+}
+.search-resize{
+  width:50vh;
+  height:40vh;
+  object-fit: cover;
+  object-position: center center;
+}
