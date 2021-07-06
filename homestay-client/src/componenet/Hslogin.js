@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import Navbar from './Navbar';
 
-const Login = () => {
+const Hslogin = () => {
     const intialValues = {
         email:"",
         password:""
@@ -23,21 +24,24 @@ const Login = () => {
         alert(data);
     }
     return (
-        <div class = "container">
-            <form onSubmit = {handleSubmit}>
-                <div class="form-group">
-                    <label >Email address</label>
-                    <input type="email" name = "email" value = {values.email} onChange = {handleInputChange} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>    
-                </div>
-                <div class="form-group">
-                    <label >Password</label>
-                    <input type="password" name = "password" value = {values.password} onChange = {handleInputChange} class="form-control"  placeholder="Password"/>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>    
-            
+        <div>
+            <Navbar />
+            <div class="container">
+                <form onSubmit = {handleSubmit}>
+                    <div class="form-group">
+                        <label >Email address</label>
+                        <input type="email" name = "email" value = {values.email} onChange = {handleInputChange} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>    
+                    </div>
+                    <div class="form-group">
+                        <label >Password</label>
+                        <input type="password" name = "password" value = {values.password} onChange = {handleInputChange} class="form-control"  placeholder="Password"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>    
+                
+            </div>
         </div>
     )
 }
 
-export default Login
+export default Hslogin;
