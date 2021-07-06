@@ -2,6 +2,7 @@ import db from '../models/index';
 import * as bcrypt from 'bcrypt';
 import { generateHomestayToken } from './AuthService';
 import { GeneralError} from '../helpers/GeneralError';
+import { log } from 'console';
 
 let Homestay = db.Homestay;
 let Room = db.Room;
@@ -12,7 +13,7 @@ let Attraction = db.Attraction;
 export async function loginHomestayAsyc (req) {
     try {
         let email = req.email, password = req.password;
-        let validUser = await getHomestayByEmail(email);
+        let validUser = await getHomestayAccountByEmail(email);
         if (validUser === null) {
             throw new GeneralError('Homestay not registered', 401);
         }
@@ -76,10 +77,32 @@ export async function registerHomestayAsync (homestayData) {
     }
 };
 
-async function getHomestayByEmail(email) {
+
+async function getHomestayAccountByEmail(email) {
     try {
         let user = await Homestay.findOne({where: {email: email}});
         return user;
+    } catch (err) {
+        throw err;
+    }
+}
+
+export async function getHomestayByIdAsync(id) {
+    try {
+        let homestay = await Homestay.findOne({
+            where: {homestayId: id},
+            include: [{
+                model: Room, as: 'Rooms'
+            }, {
+                model: Food, as: 'Food'
+            }, {
+                model: Attraction, as: 'Attractions'
+            }, {
+                model: Service, as: 'Services'
+            }]
+        });
+        delete homestay.dataValues.password;
+        return homestay.dataValues;
     } catch (err) {
         throw err;
     }
