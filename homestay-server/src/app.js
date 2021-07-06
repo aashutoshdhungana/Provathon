@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-import { authenticate } from './middlewares/authentication';
+import { authenticateUser } from './middlewares/authentication';
 import generalErrorHandler from './middlewares/generalErrorHandler';
 
 var indexRouter = require('./routes/index');

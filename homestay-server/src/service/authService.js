@@ -1,11 +1,12 @@
 import jwt from 'jsonwebtoken';
 const config = require('../settings');
 const secret = config.secret;
-export const generateToken = function (userId) {
+export const generateUserToken = function (userId) {
     const options = {
         algorithm: 'HS256',
         expiresIn: "1d",
-        issuer: 'KNAP'
+        issuer: 'KNAP',
+        audience: 'USER',
     };
     const payload = {
         userId
@@ -15,18 +16,49 @@ export const generateToken = function (userId) {
     return token;
 }
 
-export const verifyToken = function (token) {
+export const generateHomestayToken = function (homestayId) {
+    const options = {
+        algorithm: 'HS256',
+        expiresIn: "1d",
+        issuer: 'KNAP',
+        audience: 'HOMESTAY',
+    };
+    const payload = {
+        homestayId
+    };
+
+    const token = jwt.sign(payload, secret, options)
+    return token;
+};
+
+export const verifyUserToken = function (token) {
     try {
         const options = {
             algorithm: 'HS256',
-            issuer: 'KNAP'
+            issuer: 'KNAP',
+            audience: 'USER'
         }
         const validity = jwt.verify(token, secret, options);
         if (validity !== null) {
             return true;
         }
     } catch (err) {
-        return false;
-    }
-    
+        return err;
+    }   
+}
+
+export const verifyHomestayToken = function (token) {
+    try {
+        const options = {
+            algorithm: 'HS256',
+            issuer: 'KNAP',
+            audience: 'HOMESTAY'
+        }
+        const validity = jwt.verify(token, secret, options);
+        if (validity !== null) {
+            return true;
+        }
+    } catch (err) {
+        return err;
+    }   
 }
