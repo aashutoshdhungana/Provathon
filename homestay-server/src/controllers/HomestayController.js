@@ -11,3 +11,9 @@ export const homestayRegister = function (req, res, next) {
     .then( (registerResponse) => res.json(registerResponse) )
     .catch( (err) => next(err) )
 }
+
+export const getHomestayAsync = function (req, res, next) {
+    HomestayService.getHomestayByIdAsync(req.params.id)
+    .then( (getResponse) => res.json(getResponse))
+    .catch( (err) => next(err) )
+}
