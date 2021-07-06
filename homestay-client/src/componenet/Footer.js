@@ -1,5 +1,7 @@
 import react from 'react';
 
+import {MdEmail, MdPermPhoneMsg,MdLocationOn } from "react-icons/md";
+
 function Footer()
 {
     return(
@@ -8,7 +10,7 @@ function Footer()
                 <div class="container">
                     <div class="row py-4">
                         <div class="col-sm-6">
-                            <h5 class="pb-3">Thamel <br/>Kathmandu, Nepal</h5>
+                            <h5 class="pb-3"><MdLocationOn class="mr-3 " />Thamel <br/>Kathmandu, Nepal</h5>
                             <h5 class="pb-3">+977 9861282203</h5>
                             <h5>homestay@gmail.com</h5>
                         </div>

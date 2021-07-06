@@ -10,7 +10,7 @@ function Routers()
         <Router>
             <switch>
                 <Route exact path='/' component={Home} />
-                <Route exact ptah='/homestaysignin' component={Hslogin} />
+                <Route exact path='/homestaysignin' component={Hslogin} />
             </switch>
         </Router>
     )
