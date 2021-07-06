@@ -1,4 +1,5 @@
 var express = require('express');
+const { authenticate } = require('../middlewares/authentication');
 var router = express.Router();
 
 /* GET users listing. */
