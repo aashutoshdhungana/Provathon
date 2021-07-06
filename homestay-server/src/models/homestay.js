@@ -1,11 +1,7 @@
 'use strict';
 import { Model, Sequelize } from 'sequelize';
-import db from './index';
-let Room = db.Room;
-let Service = db.Service;
-let Food = db.Food;
-let Attraction = db.Attraction; 
-export default (sequelize, DataTypes) => {
+
+module.exports = (sequelize, DataTypes) => {
   var Homestay = sequelize.define('Homestay',{
     homestayId: {
       allowNull: false,
@@ -48,13 +44,16 @@ export default (sequelize, DataTypes) => {
     
   },  {
     sequelize,
-    modelName: Homestay
+    modelName: 'Homestay'
   })
 
-  Homestay.hasMany(Room, {foreignKey: 'homestayId'});
-  Homestay.hasMany(Service, {foreignKey: 'homestayId'});
-  Homestay.hasMany(Attraction, {foreignKey: 'homestayId'});
-  Homestay.hasMany(Food, {foreignKey: 'homestayId'});
+  Homestay.associate = function(models) {
+    Homestay.hasMany(models.Room, {foreignKey: 'homestayId'});
+    Homestay.hasMany(models.Service, {foreignKey: 'homestayId'});
+    Homestay.hasMany(models.Attraction, {foreignKey: 'homestayId'});
+    Homestay.hasMany(models.Food, {foreignKey: 'homestayId'});
+  };
+  
   
   return Homestay;
 };

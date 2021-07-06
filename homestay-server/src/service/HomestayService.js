@@ -3,10 +3,15 @@ import * as bcrypt from 'bcrypt';
 import { generateHomestayToken } from './AuthService';
 import { GeneralError} from '../helpers/GeneralError';
 
-const Homestay = db.Homestay;
+let Homestay = db.Homestay;
+let Room = db.Room;
+let Service = db.Service;
+let Food = db.Food;
+let Attraction = db.Attraction;
 
-export async function loginHomestayAsyc (email, password) {
+export async function loginHomestayAsyc (req) {
     try {
+        let email = req.email, password = req.password;
         let validUser = await getHomestayByEmail(email);
         if (validUser === null) {
             throw new GeneralError('Homestay not registered', 401);
@@ -24,7 +29,6 @@ export async function loginHomestayAsyc (email, password) {
             role: '1',
             token
         }
-        console.log(response);
         return response;
     } catch(err) {
         throw err;
@@ -33,16 +37,40 @@ export async function loginHomestayAsyc (email, password) {
 
 export async function registerHomestayAsync (homestayData) {
     try {
-        let rooms = homestayData.rooms;
+        let roomdata = homestayData.rooms;
+        console.log(roomdata);
         let coverPhoto = homestayData.coverPhoto;
         let photos = homestayData.photos;
-        let attractions = homestayData.attractions;
-        let services = homestayData.services;
-        let userData = homestayData.AccountData;
+        let attractiondata = homestayData.attractions;
+        let servicedata = homestayData.services;
+        let fooddata = homestayData.foods;
+        let userData = homestayData.userData;
         userData.password = bcrypt.hashSync(userData.password, 10);
-        let user = await Homestay.build(userData);
-        await user.save();
-        return user;
+        let rooms = [];
+        let services = [];
+        let foods = [];
+        let attractions = [];
+        for (let room of roomdata) {
+            rooms.push(await Room.create(room));
+        }
+
+        for (let service of servicedata) {
+            services.push(await Service.create(service));
+        }
+
+        for (let attraction of attractiondata) {
+            attractions.push(await Attraction.create(attraction));
+        }
+
+        for (let food of fooddata) {
+            foods.push(await Food.create(food));
+        }
+        let homestay = await Homestay.create(userData);
+        await homestay.setRooms(rooms);
+        await homestay.setAttractions(attractions);
+        await homestay.setServices(services);
+        await homestay.setFood(foods);
+        return homestay;
     } catch(err) {
         throw err;
     }

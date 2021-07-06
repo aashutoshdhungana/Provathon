@@ -7,7 +7,7 @@ import generalErrorHandler from './middlewares/generalErrorHandler';
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+var homestayRouter = require('./routes/homestay');
 
 var app = express();
 
@@ -18,6 +18,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/homestay', homestayRouter);
 app.use(function(req, res) {
     app.status(404).json({error: 'Page not found'});
 })

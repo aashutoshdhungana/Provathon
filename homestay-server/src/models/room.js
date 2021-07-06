@@ -1,8 +1,5 @@
 'use strict';
 import { Model, Sequelize } from 'sequelize';
-import db from './index';
-
-let Homestay = db.Homestay;
 
 module.exports = (sequelize, DataTypes) => {
   var Room = sequelize.define('Room', {
@@ -27,6 +24,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DECIMAL(10,2)
     },    
   })
-  Room.belongsTo(Homestay)
+  Room.associate = function(models) {
+    Room.belongsTo(models.Homestay, {foreignKey: 'homestayId'});
+  };
   return Room;
 };

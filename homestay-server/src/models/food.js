@@ -1,8 +1,5 @@
 'use strict';
 import Sequelize from 'sequelize';
-import db from './index';
-
-const Homestay = db.Homestay;
 
 module.exports = (sequelize, DataTypes) => {
   var Food = sequelize.define('Food', {
@@ -22,8 +19,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },   
+  }, {
+    sequelize,
+    modelName: 'Food'
   })
 
-  Food.belongsTo(Homestay)
+  Food.associate = function(models) {
+    Food.belongsTo(models.Homestay, {foreignKey: 'homestayId'});
+  };
   return Food;
 };

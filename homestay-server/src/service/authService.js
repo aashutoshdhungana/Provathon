@@ -32,7 +32,6 @@ export const generateHomestayToken = function (homestayId) {
 };
 
 export const verifyUserToken = function (token) {
-    try {
         const options = {
             algorithm: 'HS256',
             issuer: 'KNAP',
@@ -42,9 +41,6 @@ export const verifyUserToken = function (token) {
         if (validity !== null) {
             return true;
         }
-    } catch (err) {
-        return err;
-    }   
 }
 
 export const verifyHomestayToken = function (token) {
