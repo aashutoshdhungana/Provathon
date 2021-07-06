@@ -1,6 +1,4 @@
-import react from "react";
-
-import { MdEmail, MdPermPhoneMsg, MdLocationOn } from "react-icons/md";
+import React from "react";
 
 function Footer() {
   return (
@@ -10,7 +8,6 @@ function Footer() {
           <div class="row py-4">
             <div class="col-sm-6">
               <h5 class="pb-3">
-                <MdLocationOn class="mr-3 " />
                 Thamel <br />
                 Kathmandu, Nepal
               </h5>

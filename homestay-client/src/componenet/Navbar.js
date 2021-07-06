@@ -2,8 +2,6 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import { NavLink } from "react-router-dom";
-import { Router } from "react-router";
-import { ImHome, ImUser, ImUserPlus, ImUsers } from "react-icons/im";
 
 function Navbar() {
   return (
