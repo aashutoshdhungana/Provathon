@@ -1,22 +1,15 @@
 'use strict';
 import { Model, Sequelize } from 'sequelize';
+
 module.exports = (sequelize, DataTypes) => {
-  var User = sequelize.define('User', {
-    userId: {
+  var Homestay = sequelize.define('Homestay',{
+    homestayId: {
+      allowNull: false,
       type: DataTypes.UUID,
       primaryKey: true,
-      defaultValue: Sequelize.UUIDV4,
-      allowNull: false
-
+      defaultValue: Sequelize.UUIDV4
     },
-    firstName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true
-      }
-    },
-    lastName: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -31,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
         isEmail: true
       }
     },
+
     password: {
       type: DataTypes.STRING,
       allowNull:false,
@@ -38,13 +32,28 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       }
     },
+
     phoneNum: {
       type: DataTypes.STRING,
-    }
-  }, {
-    sequelize,
-    modelName: 'User'
-  });
+    },
 
-  return User;
+    location: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    
+  },  {
+    sequelize,
+    modelName: 'Homestay'
+  })
+
+  Homestay.associate = function(models) {
+    Homestay.hasMany(models.Room, {foreignKey: 'homestayId'});
+    Homestay.hasMany(models.Service, {foreignKey: 'homestayId'});
+    Homestay.hasMany(models.Attraction, {foreignKey: 'homestayId'});
+    Homestay.hasMany(models.Food, {foreignKey: 'homestayId'});
+  };
+  
+  
+  return Homestay;
 };

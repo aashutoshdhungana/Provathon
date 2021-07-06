@@ -1,6 +1,6 @@
 import db from '../models/index';
 import * as bcrypt from 'bcrypt';
-import { generateToken } from './authService';
+import { generateUserToken } from './AuthService';
 import { GeneralError } from '../helpers/GeneralError';
 
 const User = db.User;
@@ -16,11 +16,12 @@ export async function loginAsync (email, password) {
             throw new GeneralError('Password donot Match', 401);
         }
 
-        let token = generateToken(validUser.id);
+        let token = generateUserToken(validUser.id);
 
         delete validUser.dataValues.password;
         let response = {
             ...validUser.dataValues,
+            role: '0',
             token
         }
         console.log(response);
