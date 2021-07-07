@@ -102,7 +102,7 @@ function Navbar() {
 
       <nav class="navbar navbar-expand-lg  navbar-light text-light bg-light">
         <Link class="navbar-brand" to="/">
-          Navbar
+          StayHere
         </Link>
         <button
           class="navbar-toggler"
