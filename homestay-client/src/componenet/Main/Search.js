@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import userPhoto from "../../assets/images/landmarks/forest1.jpg";
+import { homestaysDemo } from "../../demo/homestay-demo";
 
 const Search = () => {
   return (
@@ -78,9 +80,11 @@ const Search = () => {
                   sagittis quam vel gravida gravida.{" "}
                 </p>
               </div>
-              <button type="button" class="btn btn-primary">
-                Read More
-              </button>
+              <Link to={`/homestay/${homestaysDemo[0].id}`}>
+                <button type="button" class="btn btn-primary">
+                  Read More
+                </button>
+              </Link>
             </div>
           </div>
         </div>
