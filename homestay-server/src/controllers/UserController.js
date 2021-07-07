@@ -9,5 +9,5 @@ export const login = function (req, res, next) {
 export const register = function (req, res, next) {
     UserService.registerAsync(req.body)
     .then((registerResponse) => res.json(registerResponse))
-    .catch(next(err));
+    .catch((err) => next(err));
 }

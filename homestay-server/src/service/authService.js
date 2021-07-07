@@ -32,15 +32,17 @@ export const generateHomestayToken = function (homestayId) {
 };
 
 export const verifyUserToken = function (token) {
+    try {
         const options = {
             algorithm: 'HS256',
             issuer: 'KNAP',
             audience: 'USER'
         }
         const validity = jwt.verify(token, secret, options);
-        if (validity !== null) {
-            return true;
-        }
+        return validity;
+    } catch (err) {
+        throw err;
+    }
 }
 
 export const verifyHomestayToken = function (token) {
@@ -51,10 +53,8 @@ export const verifyHomestayToken = function (token) {
             audience: 'HOMESTAY'
         }
         const validity = jwt.verify(token, secret, options);
-        if (validity !== null) {
-            return true;
-        }
+        return validity;
     } catch (err) {
-        return err;
+        throw err;
     }   
 }

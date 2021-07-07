@@ -21,10 +21,9 @@ export async function loginAsync (email, password) {
         delete validUser.dataValues.password;
         let response = {
             ...validUser.dataValues,
-            role: '0',
+            role: 0,
             token
         }
-        console.log(response);
         return response;
     } catch(err) {
         throw err;
