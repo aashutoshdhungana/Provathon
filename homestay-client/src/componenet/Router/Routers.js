@@ -1,7 +1,11 @@
 import React from "react";
 import Navbar from "../Navbar";
 import Home from "../Dashboard/Home";
-import Hslogin from "../Forms/Hslogin";
+import Login from "../Forms/Login";
+import Search from "../Main/Search";
+import Hsregister from "../Forms/Hsregister";
+import Register from "../Forms/Register";
+import Bookmark from "../Bookmarks";
 import HomestayProfile from "../Homestay/homestayProfile";
 import { Route, BrowserRouter } from "react-router-dom";
 
@@ -11,9 +15,12 @@ function Routers() {
       <Navbar />
       <switch>
         <Route exact={true} path="/" component={Home} />
-        <Route path="/homestay" component={HomestayProfile} />
         <Route path="/homestay/:id" component={HomestayProfile} />
-        <Route path="/homestaysignin" component={Hslogin} />
+        <Route path="/search" component={Search} />
+        <Route path="/signin" component={Login} />
+        <Route path="/bookmarks" component={Bookmark} />
+        <Route path="/homestay/register" component={Hsregister} />
+        <Route path="/user/register" component={Register} />
       </switch>
     </BrowserRouter>
   );

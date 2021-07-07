@@ -128,11 +128,12 @@ function Navbar() {
                 Search
               </NavLink>
             </li>
+            {/**
             <li class="nav-item">
               <NavLink exact to="/itenary" activeStyle={{ color: "green" }}>
                 Itenary
               </NavLink>
-            </li>
+            </li> */}
             <li class="nav-item">
               <NavLink exact to="/bookmarks" activeStyle={{ color: "green" }}>
                 Bookmark
@@ -141,7 +142,7 @@ function Navbar() {
             <li class="nav-item dropdown">
               <NavLink
                 exact
-                to="/homestaysignin"
+                to="/signin"
                 activeStyle={{ color: "green" }}
                 class="dropdown"
               >
@@ -161,10 +162,10 @@ function Navbar() {
                 Register
               </Link>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link class="dropdown-item" class="blue" href="#">
+                <Link class="dropdown-item" to="/user/register">
                   User
                 </Link>
-                <Link class="dropdown-item" class="blue" href="#">
+                <Link class="dropdown-item" to="/homestay/register">
                   Homestay
                 </Link>
               </div>

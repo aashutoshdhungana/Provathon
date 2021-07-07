@@ -1,6 +1,9 @@
 import React from "react";
-import Room from "../../assets/images/rooms/room2.jpg";
-import Room1 from "../../assets/images/rooms/room3.jpg";
+import place1 from "../../assets/images/places/place1.jpg";
+import place2 from "../../assets/images/places/place2.jpg";
+import place3 from "../../assets/images/places/place3.jpg";
+import place4 from "../../assets/images/places/place4.jpg";
+import place5 from "../../assets/images/places/place5.jpg";
 
 function Carousel() {
   return (
@@ -25,35 +28,35 @@ function Carousel() {
           <div class="carousel-item active">
             <img
               class="d-block w-100 image-resize"
-              src={Room}
+              src={place4}
               alt="First slide"
             />
           </div>
           <div class="carousel-item">
             <img
               class="d-block w-100 image-resize"
-              src={Room1}
+              src={place3}
               alt="Second slide"
             />
           </div>
           <div class="carousel-item">
             <img
               class="d-block w-100 image-resize"
-              src={Room}
+              src={place5}
               alt="Third slide"
             />
           </div>
           <div class="carousel-item">
             <img
               class="d-block w-100 image-resize"
-              src={Room1}
+              src={place1}
               alt="Fourth slide"
             />
           </div>
           <div class="carousel-item">
             <img
               class="d-block w-100 image-resize"
-              src={Room}
+              src={place2}
               alt="Fifth slide"
             />
           </div>
