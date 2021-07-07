@@ -2,17 +2,20 @@ import React from "react";
 import Navbar from "./Navbar";
 import Home from "./Dashboard/Home";
 import Hslogin from "./Forms/Hslogin";
-import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
+import HomestayProfile from "./Homestay/homestayProfile";
+import { Route, BrowserRouter } from "react-router-dom";
 
 function Routers() {
   return (
-    <Router>
-        <Navbar />
+    <BrowserRouter>
+      <Navbar />
       <switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/homestaysignin" component={Hslogin} />
+        <Route exact={true} path="/" component={Home} />
+        <Route path="/homestay" component={HomestayProfile} />
+        <Route path="/homestay/:id" component={HomestayProfile} />
+        <Route path="/homestaysignin" component={Hslogin} />
       </switch>
-    </Router>
+    </BrowserRouter>
   );
 }
 export default Routers;

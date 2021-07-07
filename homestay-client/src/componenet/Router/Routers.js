@@ -1,25 +1,21 @@
 import React from "react";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-
 import Navbar from "../Navbar";
-import Search from "../Main/Search";
 import Home from "../Dashboard/Home";
 import Hslogin from "../Forms/Hslogin";
-import Itenary from "../Main/Itenary";
-import Bookmaks from "../Bookmarks";
+import HomestayProfile from "../Homestay/homestayProfile";
+import { Route, BrowserRouter } from "react-router-dom";
 
 function Routers() {
   return (
-    <Router>
+    <BrowserRouter>
       <Navbar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact={true} path="/search" component={Search} />
-        <Route exact={true} path="/itenary" component={Itenary} />
-        <Route exact={true} path="/bookmarks" component={Bookmaks} />
-        <Route exact={true} path="/homestaysignin" component={Hslogin} />
-      </Switch>
-    </Router>
+      <switch>
+        <Route exact={true} path="/" component={Home} />
+        <Route path="/homestay" component={HomestayProfile} />
+        <Route path="/homestay/:id" component={HomestayProfile} />
+        <Route path="/homestaysignin" component={Hslogin} />
+      </switch>
+    </BrowserRouter>
   );
 }
 export default Routers;

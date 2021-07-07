@@ -1,4 +1,11 @@
 import Room from "../../assets/images/rooms/room1.jpg";
+import { Link } from "react-router-dom";
+
+const id = {
+  id1: "1bd9ae1e-cbdf-47ad-9556-48793baeda45",
+  id2: "ae2a6598-9c92-4dc2-8fae-470e24bf0f9d",
+  id3: "d7c4b07e-711f-419e-a989-eb14ad80043a",
+};
 
 function Rating() {
   return (
@@ -13,9 +20,9 @@ function Rating() {
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p>
-              <a href="#" class="btn btn-primary">
-                Read More
-              </a>
+              <Link to={`/homestay/${id.id3}`}>
+                <button class="btn btn-primary">Learn more</button>
+              </Link>
             </div>
           </div>
         </div>
@@ -28,9 +35,9 @@ function Rating() {
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p>
-              <a href="#" class="btn btn-primary">
-                Read More
-              </a>
+              <Link to={`/homestay/${id.id1}`}>
+                <button class="btn btn-primary">Learn more</button>
+              </Link>
             </div>
           </div>
         </div>
@@ -43,9 +50,9 @@ function Rating() {
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
               </p>
-              <a href="#" class="btn btn-primary">
-                Read More
-              </a>
+              <Link to={`/homestay/${id.id2}`}>
+                <button class="btn btn-primary">Learn more</button>
+              </Link>
             </div>
           </div>
         </div>

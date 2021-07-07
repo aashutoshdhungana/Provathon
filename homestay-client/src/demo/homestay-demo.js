@@ -5,6 +5,7 @@ import room1 from "../assets/images/rooms/room1.jpg";
 import room2 from "../assets/images/rooms/room2.jpg";
 import room3 from "../assets/images/rooms/room3.jpg";
 import room4 from "../assets/images/rooms/room4.jpg";
+import room5 from "../assets/images/rooms/room5.jpg";
 
 export const homestaysDemo = [
   {
@@ -42,28 +43,35 @@ export const homestaysDemo = [
         title: "double",
         id: "room-103",
         description: `Bathroom ensuite (within room) 1 Double Bed`,
-        price: 1200,
+        price: 1500,
         photo: room3,
       },
       {
         title: "double",
         id: "room-103",
         description: `Bathroom ensuite (within room) 1 Double Bed`,
-        price: 1200,
-        photo: room3,
+        price: 2000,
+        photo: room4,
       },
     ],
     landmarks: [
       {
         description: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia veritatis labore ex quos optio asperiores, est facilis expedita perspiciatis porro.`,
-        title: "Siva Mandir",
-        photo: temple1,
+        title: "Beautiful Village",
+        photo:
+          "https://www.planetware.com/photos-large/NEP/nepal-annapurna-region-hiking.jpg",
       },
-
       {
         description: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia veritatis labore ex quos optio asperiores, est facilis expedita perspiciatis porro.`,
-        title: "Pashupatinath",
-        photo: temple2,
+        title: "Trek",
+        photo:
+          "https://www.planetware.com/photos-large/NEP/nepal-langtang-trek.jpg",
+      },
+      {
+        description: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia veritatis labore ex quos optio asperiores, est facilis expedita perspiciatis porro.`,
+        title: "Dal bhat",
+        photo:
+          "https://images.unsplash.com/photo-1588644525273-f37b60d78512?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bmVwYWxpJTIwZm9vZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       },
     ],
   },
@@ -87,14 +95,15 @@ export const homestaysDemo = [
         title: "Delux room",
         id: "room-101",
         description: "Bathroom ensuite (within room) <br> 1 Double Bed",
-        price: 1200,
-        photo: room4,
+        price: 980,
+        photo:
+          "https://media-cdn.tripadvisor.com/media/photo-s/05/94/53/0b/native-cottage-bedroom.jpg",
       },
       {
         title: "single ",
         id: "room-102",
         description: "Bathroom ensuite (within room) <br> 1 Double Bed",
-        price: 1200,
+        price: 1100,
         photo: room2,
       },
     ],
@@ -109,6 +118,61 @@ export const homestaysDemo = [
         description: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia veritatis labore ex quos optio asperiores, est facilis expedita perspiciatis porro.`,
         title: "Pashupatinath",
         photo: temple2,
+      },
+    ],
+  },
+  {
+    id: "d7c4b07e-711f-419e-a989-eb14ad80043a",
+    title: "Beautiful homey homestay",
+    email: "beauty33@gmail.com",
+    phone: "9889890998",
+    discription: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis cupiditate modi ut reiciendis explicabo provident iure possimus numquam totam voluptatum. Nesciunt, magnam inventore facere fugit hic exercitationem, ipsam omnis quisquam ad vel eum a dicta. Ullam magni harum laboriosam iusto animi natus, eaque quos adipisci blanditiis, dolores dicta error laudantium dolor amet in asperiores impedit nulla tenetur, consequuntur itaque voluptas. Tempore unde qui quibusdam cum necessitatibus ex accusantium fugiat? Aliquid!`,
+    address: {
+      district: "kathmandu",
+      street: "thamel, 3",
+    },
+    coverPhoto: null,
+    rooms: [
+      {
+        title: "Delux room",
+        id: "room-101",
+        description: "Bathroom ensuite (within room) <br> 1 Double Bed",
+        price: 1800,
+        photo: room5,
+      },
+      {
+        title: "single ",
+        id: "room-102",
+        description: "Bathroom ensuite (within room) <br> 1 Double Bed",
+        price: 1500,
+        photo: room4,
+      },
+      {
+        title: "single ",
+        id: "room-102",
+        description: "Bathroom ensuite (within room) <br> 1 Double Bed",
+        price: 900,
+        photo: room2,
+      },
+    ],
+    landmarks: [
+      {
+        description: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia veritatis labore ex quos optio asperiores, est facilis expedita perspiciatis porro.`,
+        title: "Siva Mandir",
+        photo: temple1,
+      },
+
+      {
+        description: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia veritatis labore ex quos optio asperiores, est facilis expedita perspiciatis porro.`,
+        title: "Pizza",
+        photo:
+          "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+      },
+      {
+        description: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia veritatis labore ex quos optio asperiores, est facilis expedita perspiciatis porro.`,
+        title: "Momo",
+        photo:
+          "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bmVwYWxpJTIwZm9vZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       },
     ],
   },

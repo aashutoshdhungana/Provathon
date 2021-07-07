@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { homestaysDemo } from "../../demo/homestay-demo";
 import default_cover from "../../assets/images/default_cover_photo.jpg";
 
 import Room from "./Room";
 import Landmark from "./Landmarks";
 import Reviews from "./Reviews";
+import { render } from "react-dom";
 
 // const ratings=[{
 //   user : {
@@ -17,88 +18,126 @@ import Reviews from "./Reviews";
 //   }
 // }]
 
+const filteredHomestay = (id) => {
+  const [homestay] = homestaysDemo.filter((item, key) => {
+    console.log(id === item.id);
+
+    return item.id === id;
+  });
+
+  return homestay;
+};
+
 const reviews = [{}, {}];
 
-let homestay = homestaysDemo[0];
+const backgroundImgStyle = {
+  backgroundImage: `url(${default_cover})`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+};
+class HomestayProfile extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      homestay: null,
+      id: this.props.match.params.id,
+    };
+  }
 
-const HomestayProfile = () => {
-  console.log(homestaysDemo);
+  componentDidMount = () => {
+    let filtered = filteredHomestay(this.state.id);
 
-  const backgroundImgStyle = {
-    backgroundImage: `url(${default_cover})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
+    if (!!filtered) {
+      this.setState({
+        ...this.state,
+        homestay: filtered,
+      });
+      console.log("filtered", filtered);
+    }
   };
 
-  return (
-    <div>
-      <div class="hp-banner " style={backgroundImgStyle}>
-        <div class="container position-relative">
-          <h1 className="hp-banner-title">{homestay.title} Hello</h1>
-        </div>
-      </div>
+  render() {
+    const { homestay } = this.state;
+    console.log(homestay);
+    return (
+      <div>
+        {!homestay ? (
+          <div></div>
+        ) : (
+          <div>
+            <div class="hp-banner " style={backgroundImgStyle}>
+              <div
+                class="container position-relative"
+                style={{ height: "300px" }}
+              >
+                <h1 className="hp-banner-title">{homestay.title} Hello</h1>
+              </div>
+            </div>
 
-      <div class="container mt-4 mb-4 position-relative">
-        <div class="row">
-          <div className="col-md-8" style={{ maxWidth: "500px" }}>
-            <h3 className="mb-3">Description</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-              dolore quos inventore libero est illum soluta esse animi neque
-              officia reiciendis, nulla possimus velit? Eos!
-            </p>
-          </div>
-          <div className="col-md-4">
-            <h3 className="mb-3">Contact</h3>
-            <div>
-              <p className="m-0">Phone : {homestay.phone}</p>
-              <p className="m-0">Email : {homestay.email}</p>
+            <div class="container mt-4 mb-4 position-relative">
+              <div class="row">
+                <div className="col-md-8" style={{ maxWidth: "500px" }}>
+                  <h3 className="mb-3">Description</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Excepturi dolore quos inventore libero est illum soluta esse
+                    animi neque officia reiciendis, nulla possimus velit? Eos!
+                  </p>
+                </div>
+                <div className="col-md-4">
+                  <h3 className="mb-3">Contact</h3>
+                  <div>
+                    <p className="m-0">Phone : {homestay.phone}</p>
+                    <p className="m-0">Email : {homestay.email}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="container mt-4 mb-4">
+              {!!homestay.landmarks.length && <h3>Rooms </h3>}
+
+              {!!homestay.rooms.length ? (
+                <div className="row mt-4 mb-4">
+                  {homestay.rooms.map((room, key) => (
+                    <Room info={room} key={room.id} />
+                  ))}
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+
+            <div className="container mt-4 mb-4">
+              {!!homestay.landmarks.length && <h3>Landmark and Foods</h3>}
+
+              {!!homestay.landmarks.length ? (
+                <div className="row mt-4 mb-4">
+                  {homestay.landmarks.map((landmark, key) => (
+                    <Landmark info={landmark} key={landmark.id} />
+                  ))}
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+
+            <div className="container mt-4 mb-4">
+              {!!homestay.landmarks.length && <h3>Reviews</h3>}
+
+              {!!reviews.length && (
+                <div className="row">
+                  {reviews.map((rating, key) => (
+                    <Reviews />
+                  ))}
+                </div>
+              )}
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className="container mt-4 mb-4">
-        {!!homestay.landmarks.length && <h3>Rooms </h3>}
-
-        {!!homestay.rooms.length ? (
-          <div className="row mt-4 mb-4">
-            {homestay.rooms.map((room, key) => (
-              <Room info={room} key={room.id} />
-            ))}
-          </div>
-        ) : (
-          ""
         )}
       </div>
-
-      <div className="container mt-4 mb-4">
-        {!!homestay.landmarks.length && <h3>Landmark and Foods</h3>}
-
-        {!!homestay.landmarks.length ? (
-          <div className="row mt-4 mb-4">
-            {homestay.landmarks.map((landmark, key) => (
-              <Landmark info={landmark} key={landmark.id} />
-            ))}
-          </div>
-        ) : (
-          ""
-        )}
-      </div>
-
-      <div className="container mt-4 mb-4">
-        {!!homestay.landmarks.length && <h3>Reviews</h3>}
-
-        {!!reviews.length && (
-          <div className="row">
-            {reviews.map((rating, key) => (
-              <Reviews />
-            ))}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default HomestayProfile;
