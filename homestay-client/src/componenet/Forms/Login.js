@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+// import axios from "axios";
+
+const baseUrl = "http://localhost:5000";
 
 const Login = () => {
   const intialValues = {
@@ -26,7 +29,7 @@ const Login = () => {
           <h3 className="p-2 mt-3 mb-3">Log in </h3>
           <form onSubmit={handleSubmit}>
             <div class="form-group">
-              <label>Email address</label>
+              <label htmlFor="email">Email address</label>
               <input
                 type="email"
                 name="email"
@@ -39,7 +42,7 @@ const Login = () => {
               />
             </div>
             <div class="form-group">
-              <label>Password</label>
+              <label htmlFor="password">Password</label>
               <input
                 type="password"
                 name="password"
