@@ -19,12 +19,7 @@ import { render } from "react-dom";
 // }]
 
 const filteredHomestay = (id) => {
-  const [homestay] = homestaysDemo.filter((item, key) => {
-    console.log(id === item.id);
-
-    return item.id === id;
-  });
-
+  const [homestay] = homestaysDemo.filter((item) => item.id === id);
   return homestay;
 };
 
@@ -52,30 +47,30 @@ class HomestayProfile extends React.Component {
         ...this.state,
         homestay: filtered,
       });
-      console.log("filtered", filtered);
+      // console.log("filtered", filtered);
     }
   };
 
   render() {
     const { homestay } = this.state;
-    console.log(homestay);
+
     return (
       <div>
         {!homestay ? (
           <div></div>
         ) : (
           <div>
-            <div class="hp-banner " style={backgroundImgStyle}>
+            <div className="hp-banner " style={backgroundImgStyle}>
               <div
-                class="container position-relative"
+                className="container position-relative"
                 style={{ height: "300px" }}
               >
                 <h1 className="hp-banner-title">{homestay.title} Hello</h1>
               </div>
             </div>
 
-            <div class="container mt-4 mb-4 position-relative">
-              <div class="row">
+            <div className="container mt-4 mb-4 position-relative">
+              <div className="row">
                 <div className="col-md-8" style={{ maxWidth: "500px" }}>
                   <h3 className="mb-3">Description</h3>
                   <p>
@@ -100,7 +95,7 @@ class HomestayProfile extends React.Component {
               {!!homestay.rooms.length ? (
                 <div className="row mt-4 mb-4">
                   {homestay.rooms.map((room, key) => (
-                    <Room info={room} key={room.id} />
+                    <Room info={room} key={room.id + key} />
                   ))}
                 </div>
               ) : (
@@ -114,7 +109,7 @@ class HomestayProfile extends React.Component {
               {!!homestay.landmarks.length ? (
                 <div className="row mt-4 mb-4">
                   {homestay.landmarks.map((landmark, key) => (
-                    <Landmark info={landmark} key={landmark.id} />
+                    <Landmark info={landmark} key={key} />
                   ))}
                 </div>
               ) : (
@@ -128,7 +123,7 @@ class HomestayProfile extends React.Component {
               {!!reviews.length && (
                 <div className="row">
                   {reviews.map((rating, key) => (
-                    <Reviews />
+                    <Reviews key={key + key} />
                   ))}
                 </div>
               )}

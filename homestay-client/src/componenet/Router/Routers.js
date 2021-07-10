@@ -7,13 +7,13 @@ import Hsregister from "../Forms/Hsregister";
 import Register from "../Forms/Register";
 import Bookmark from "../Bookmarks";
 import HomestayProfile from "../Homestay/homestayProfile";
-import { Route, BrowserRouter } from "react-router-dom";
+import { Route, BrowserRouter, Switch } from "react-router-dom";
 
 function Routers() {
   return (
     <BrowserRouter>
       <Navbar />
-      <switch>
+      <Switch>
         <Route exact={true} path="/" component={Home} />
         <Route path="/homestay/:id" component={HomestayProfile} />
         <Route path="/search" component={Search} />
@@ -21,7 +21,7 @@ function Routers() {
         <Route path="/bookmarks" component={Bookmark} />
         <Route path="/homestay/register" component={Hsregister} />
         <Route path="/user/register" component={Register} />
-      </switch>
+      </Switch>
     </BrowserRouter>
   );
 }

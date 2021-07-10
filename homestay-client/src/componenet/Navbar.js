@@ -6,12 +6,12 @@ import { NavLink, Link } from "react-router-dom";
 function Navbar() {
   return (
     <div>
-      {/* <nav class="navbar navbar-expand-lg  navbar-light text-light bg-light">
-        <a class="navbar-brand" href="#">
+      {/* <nav className="navbar navbar-expand-lg  navbar-light text-light bg-light">
+        <a className="navbar-brand" href="#">
           Navbar
         </a>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarNav"
@@ -19,39 +19,39 @@ function Navbar() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
               <NavLink
                 exact
                 to="/"
                 activeStyle={{ color: "green" }}
-                class="nav-link"
+                className="nav-link"
               >
                 Home
               </NavLink>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="#">
+            <li className="nav-item">
+              <a className="nav-link" href="#">
                 Search
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
+            <li className="nav-item">
+              <a className="nav-link" href="#">
                 Itenary
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
+            <li className="nav-item">
+              <a className="nav-link" href="#">
                 Bookmark
               </a>
             </li>
-            <li class="nav-item dropdown">
+            <li className="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle"
                 href="#"
                 id="navbarDropdown"
                 role="button"
@@ -61,23 +61,23 @@ function Navbar() {
               >
                 Signin
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">
+              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a className="dropdown-item" href="#">
                   User
                 </a>
                 <NavLink
                   exact
                   to="/homestaysignin"
                   activeStyle={{ color: "green" }}
-                  class="nav-link dropdownpr"
+                  className="nav-link dropdownpr"
                 >
                   Homestay
                 </NavLink>
               </div>
             </li>
-            <li class="nav-item dropdown">
+            <li className="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle"
                 href="#"
                 id="navbarDropdown"
                 role="button"
@@ -87,11 +87,11 @@ function Navbar() {
               >
                 Register
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">
+              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a className="dropdown-item" href="#">
                   User
                 </a>
-                <a class="dropdown-item" href="#">
+                <a className="dropdown-item" href="#">
                   Homestay
                 </a>
               </div>
@@ -100,12 +100,12 @@ function Navbar() {
         </div>
       </nav> */}
 
-      <nav class="navbar navbar-expand-lg  navbar-light text-light bg-light">
-        <Link class="navbar-brand" to="/">
+      <nav className="navbar navbar-expand-lg  navbar-light text-light bg-light">
+        <Link className="navbar-brand" to="/">
           StayHere
         </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarText"
@@ -113,45 +113,46 @@ function Navbar() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+        <div className="collapse navbar-collapse" id="navbarText">
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
               <NavLink exact to="/" activeStyle={{ color: "green" }}>
                 Home
               </NavLink>
             </li>
 
-            <li class="nav-item">
+            <li className="nav-item">
               <NavLink exact to="/search" activeStyle={{ color: "green" }}>
                 Search
               </NavLink>
             </li>
             {/**
-            <li class="nav-item">
+            <li className="nav-item">
               <NavLink exact to="/itenary" activeStyle={{ color: "green" }}>
                 Itenary
               </NavLink>
             </li> */}
-            <li class="nav-item">
+            <li className="nav-item">
               <NavLink exact to="/bookmarks" activeStyle={{ color: "green" }}>
                 Bookmark
               </NavLink>
             </li>
-            <li class="nav-item dropdown">
+            <li className="nav-item dropdown">
               <NavLink
                 exact
                 to="/signin"
                 activeStyle={{ color: "green" }}
-                class="dropdown"
+                className="dropdown"
               >
                 Log in
               </NavLink>
             </li>
-            <li class="nav-item dropdown">
+            <li className="nav-item dropdown">
               <Link
-                class="dropdown-toggle "
+                to="/user/register"
+                className="dropdown-toggle "
                 href="#"
                 id="navbarDropdown"
                 role="button"
@@ -161,11 +162,11 @@ function Navbar() {
               >
                 Register
               </Link>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link class="dropdown-item" to="/user/register">
+              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <Link className="dropdown-item" to="/user/register">
                   User
                 </Link>
-                <Link class="dropdown-item" to="/homestay/register">
+                <Link className="dropdown-item" to="/homestay/register">
                   Homestay
                 </Link>
               </div>

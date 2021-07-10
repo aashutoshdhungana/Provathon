@@ -2,12 +2,12 @@ import React from "react";
 
 const Landmark = ({ info }) => {
   return (
-    <div class="col-md-4">
-      <div class="card">
-        <img class="card-img-top" src={info.photo} alt={info.title} />
-        <div class="card-body">
-          <h5 class="card-title">{info.title}</h5>
-          <p class="card-text">{info.description}</p>
+    <div className="col-md-4">
+      <div className="card">
+        <img className="card-img-top" src={info.photo} alt={info.title} />
+        <div className="card-body">
+          <h5 className="card-title">{info.title}</h5>
+          <p className="card-text">{info.description}</p>
         </div>
       </div>
     </div>

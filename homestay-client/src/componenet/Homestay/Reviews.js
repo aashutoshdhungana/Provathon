@@ -4,9 +4,9 @@ import userPhoto from "../../assets/images/default_user_avatar.png";
 
 const Reviews = () => {
   return (
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-body d-flex flex-row">
+    <div className="col-md-6">
+      <div className="card">
+        <div className="card-body d-flex flex-row">
           <div className="mr-3" style={{ width: "40%" }}>
             <img
               src={userPhoto}
@@ -15,18 +15,18 @@ const Reviews = () => {
             />
           </div>
           <div>
-            <h5 class="card-title">
+            <h5 className="card-title">
               <span className="review-stars">
-                <i class="fa fa-star" aria-hidden="true"></i>
+                <i className="fa fa-star" aria-hidden="true"></i>
               </span>
             </h5>
-            <p class="card-text">
+            <p className="card-text">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
               ratione voluptatibus quas maiores voluptates maxime velit itaque
               veritatis debitis porro!
             </p>
-            <p class="card-text">
-              <small class="text-muted">Kirtee | 20/20/2020</small>
+            <p className="card-text">
+              <small className="text-muted">Kirtee | 20/20/2020</small>
             </p>
           </div>
         </div>
