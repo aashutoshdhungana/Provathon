@@ -1,5 +1,43 @@
 import React from "react";
 
+const RoomSection = () => (
+  <div>
+    <div class="form-group">
+      <label>Describe about the room you offer</label>
+      <textarea class="form-control" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+      <label>Price per room</label>
+      <input class="form-control" />
+    </div>
+    <div class="form-group">
+      <label>Upload picture showing the rooms that you offer</label>
+      <input name="email" type="file" multiple class="form-control" />
+    </div>
+  </div>
+);
+
+const LandmanrkSection = () => {
+  return (
+    <div>
+      <div class="form-group">
+        <label>
+          Describe about the landmarks and attraction near your place
+        </label>
+        <textarea class="form-control" rows="3"></textarea>
+        <label>Upload the images of those major attraction</label>
+        <input name="email" type="file" multiple class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Describe about food you offer </label>
+        <textarea class="form-control" rows="3"></textarea>
+        <label>Upload the images showing those food</label>
+        <input name="email" type="file" multiple class="form-control" />
+      </div>
+    </div>
+  );
+};
+
 const Hsregister = () => {
   return (
     <div class="container">
@@ -28,32 +66,6 @@ const Hsregister = () => {
       <div class="form-group">
         <label>Upload a profile picture of your homestay</label>
         <input name="email" type="file" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label>Describe about the room you offer</label>
-        <textarea class="form-control" rows="3"></textarea>
-      </div>
-      <div class="form-group">
-        <label>Price per room</label>
-        <input class="form-control" />
-      </div>
-      <div class="form-group">
-        <label>Upload picture showing the rooms that you offer</label>
-        <input name="email" type="file" multiple class="form-control" />
-      </div>
-      <div class="form-group">
-        <label>
-          Describe about the landmarks and attraction near your place
-        </label>
-        <textarea class="form-control" rows="3"></textarea>
-        <label>Upload the images of those major attraction</label>
-        <input name="email" type="file" multiple class="form-control" />
-      </div>
-      <div class="form-group">
-        <label>Describe about food you offer </label>
-        <textarea class="form-control" rows="3"></textarea>
-        <label>Upload the images showing those food</label>
-        <input name="email" type="file" multiple class="form-control" />
       </div>
 
       <button type="submit" class="btn btn-primary">
