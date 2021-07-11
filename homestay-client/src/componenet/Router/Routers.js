@@ -2,14 +2,12 @@ import React from "react";
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 
 import Navbar from "../Navbar";
-import Home from "../Dashboard/Home";
-import Login from "../Forms/Login";
-import Search from "../Main/Search";
-import Register from "../Forms/Register";
-import Bookmark from "../Bookmarks";
 import Footer from "../common/Footer";
+import Home from "../Dashboard/Home";
+import Search from "../Main/Search";
+import Bookmark from "../Bookmarks";
 import HomestayProfile from "../Homestay/homestayProfile";
-import HomestayRegister from "../Forms/Hsregister";
+import { Login, HomestayRegister, UserRegister } from "../Forms";
 
 const Routers = () => {
   return (
@@ -22,7 +20,7 @@ const Routers = () => {
         <Route path="/bookmarks" component={Bookmark} />
         <Route path="/homestay/register" component={HomestayRegister} />
         <Route path="/homestay/:id" component={HomestayProfile} />
-        <Route path="/user/register" component={Register} />
+        <Route path="/user/register" component={UserRegister} />
       </Switch>
       <Footer />
     </BrowserRouter>
