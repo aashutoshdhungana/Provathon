@@ -1,30 +1,30 @@
 import db from "../models/index";
 import * as bcrypt from "bcrypt";
 import { generateUserToken } from "./AuthService";
-import { GeneralError, BadRequestError } from "../helpers/GeneralError";
+import { BadRequestError, UnAuthorizedError } from "../helpers/GeneralError";
 
 const User = db.User;
 
 export async function loginAsync(email, password) {
   try {
     let validUser = await getUserByEmail(email);
-    if (validUser === null) {
-      throw new GeneralError("User not registered", 401);
+    if (!validUser) {
+      throw new UnAuthorizedError("User not registered");
     }
 
     if (!bcrypt.compareSync(password, validUser.password)) {
-      throw new GeneralError("Password donot Match", 401);
+      throw new UnAuthorizedError("Password donot Match");
     }
 
     let token = generateUserToken(validUser.id);
 
-    delete validUser.dataValues.password;
-    let response = {
+    validUser.password = undefined;
+
+    return {
       ...validUser.dataValues,
       role: 0,
       token,
     };
-    return response;
   } catch (err) {
     throw err;
   }
@@ -42,6 +42,8 @@ export async function registerAsync(userData) {
     userData.password = bcrypt.hashSync(userData.password, 10);
     let user = await User.build(userData);
     await user.save();
+
+    user.password = undefined;
     return user;
   } catch (err) {
     throw err;
