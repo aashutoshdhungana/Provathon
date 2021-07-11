@@ -1,7 +1,7 @@
 import { StatusCodes } from "http-status-codes";
 
 class GeneralError extends Error {
-  constructor(message, statusCode) {
+  constructor(message, statusCode = undefined) {
     super();
     this.message = message;
     this.statusCode = statusCode;

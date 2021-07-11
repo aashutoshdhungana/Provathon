@@ -3,7 +3,7 @@ import { GeneralError } from "../helpers/GeneralError";
 
 export default (err, req, res, next) => {
   if (err instanceof GeneralError) {
-    const statusCode = err.statusCode;
+    const statusCode = err.statusCode ? err.statusCode : err.getCode();
     return res.status(statusCode).json({
       error: getReasonPhrase(statusCode),
       message: err.message,
