@@ -1,6 +1,5 @@
-import Hslogin from "./Hslogin";
-import Hrlogin from "./Hrlogin";
+import HomestayRegister from "./HomestayRegister/HomestayRegisterForm";
 import Login from "./Login";
-import Register from "./Register";
+import UserRegister from "./UserRegister";
 
-export { Hslogin, Login, Register, Hrlogin };
+export { HomestayRegister, Login, UserRegister };
