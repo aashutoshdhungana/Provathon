@@ -52,6 +52,10 @@ module.exports = (sequelize, DataTypes) => {
     Homestay.hasMany(models.Service, {foreignKey: 'homestayId'});
     Homestay.hasMany(models.Attraction, {foreignKey: 'homestayId'});
     Homestay.hasMany(models.Food, {foreignKey: 'homestayId'});
+    Homestay.belongsTo(models.Bookmark, {foreignKey: 'homestayId'});
+    Homestay.hasMany(models.Review, {foreignKey: 'homestayId'});
+    Homestay.hasMany(models.CheckIn, {foreignKey: 'homestayId'});
+    Homestay.hasMany(models.Notification, {foreignKey: 'homestayId'});
   };
   
   

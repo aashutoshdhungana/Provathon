@@ -8,9 +8,11 @@ export const authenticateUser = function (req, res, next) {
         }
         
         const token = bearerHeader.split(' ')[1];
-        if (!verifyUserToken(token)) {
+        let decoded = verifyUserToken(token);
+        if (decoded === null) {
             throw new GeneralError('Not Authorized', 401);
         }
+        req.userId = decoded.userId;
     } catch (err) {
         next(err);
     }
@@ -24,9 +26,11 @@ export const authenticateHomestay = function (req, res, next) {
         }
         
         const token = bearerHeader.split(' ')[1];
-        if (!verifyHomestayToken(token)) {
+        let decoded = verifyHomestayToken(token);
+        if (decoded === null) {
             throw new GeneralError('Not Authorized', 401);
         }
+        req.userId = decode.userId;
     } catch (err) {
         next(err);
     }

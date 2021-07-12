@@ -1,7 +1,7 @@
 import * as HomestayService from '../service/HomestayService'
 
 export const homestayLogin = function (req, res, next) {
-    HomestayService.loginHomestayAsyc(req.body)
+    HomestayService.loginHomestayAsync(req.body)
     .then( (loginResponse) => res.json(loginResponse) )
     .catch( (err) => next(err) )
 }
