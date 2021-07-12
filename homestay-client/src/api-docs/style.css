@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 1rem;
+  height: 100%;
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 1.8rem !important;
+  font-family: monospace !important;
+}
+h2 {
+  font-size: 1.6rem !important;
+  padding-left: 0.5rem !important;
+  background-color: beige;
+}
+h3 {
+  font-size: 1.2rem !important;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  padding: 0.5rem 0;
+}
+
+.json {
+  background-color: beige;
+}
+
+button {
+  border: 1px solid #007bff;
+  border-radius: 0.5rem !important;
+  padding: 0.5rem;
+  background-color: #007bff;
+  color: white;
+}
+
+.api-item {
+  border: 2px solid slateblue;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  /* border-radius: 0.5rem !important; */
+}
+
+.description {
+  margin-left: 1rem;
+}
+
+.method-delete,
+.method-get,
+.method-post,
+.method-update {
+  text-transform: uppercase;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin-right: 5px;
+}
+
+.method-get {
+  background-color: greenyellow;
+}
+
+.method-post {
+  background-color: #ffc107;
+}
+
+.method-update {
+  background-color: #ffc107;
+}
+
+.method-delete {
+  background-color: #dc3545;
+}
