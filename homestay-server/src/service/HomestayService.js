@@ -2,7 +2,6 @@ import db from '../models/index';
 import * as bcrypt from 'bcrypt';
 import { generateHomestayToken } from './AuthService';
 import { GeneralError} from '../helpers/GeneralError';
-import { log } from 'console';
 
 let Homestay = db.Homestay;
 let Room = db.Room;
@@ -10,7 +9,7 @@ let Service = db.Service;
 let Food = db.Food;
 let Attraction = db.Attraction;
 
-export async function loginHomestayAsyc (req) {
+export async function loginHomestayAsync (req) {
     try {
         let email = req.email, password = req.password;
         let validUser = await getHomestayAccountByEmail(email);
@@ -99,6 +98,8 @@ export async function getHomestayByIdAsync(id) {
                 model: Attraction, as: 'Attractions'
             }, {
                 model: Service, as: 'Services'
+            }, {
+                model: Review, as: 'Reviews'
             }]
         });
         delete homestay.dataValues.password;
