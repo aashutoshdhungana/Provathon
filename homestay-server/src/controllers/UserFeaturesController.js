@@ -1,7 +1,10 @@
+import { decode } from "jsonwebtoken";
 import * as UserFeatures from "../service/userFeatureServices";
 
 export const addBookmarks = function (req, res, next) {
-  UserFeatures.addBookMarks(req.body)
+  const token = req.headers["authorization"].split(" ")[1];
+  const { id: userId } = decode(token);
+  UserFeatures.addBookMarks(userId, req.body)
     .then((data) => res.status(200).json(data))
     .catch((err) => next(err));
 };

@@ -3,15 +3,12 @@ import jwt from "jsonwebtoken";
 const config = require("../settings");
 const secret = config.secret;
 
-export const generateUserToken = function (userId) {
+export const generateUserToken = function (payload) {
   const options = {
     algorithm: "HS256",
     expiresIn: "1d",
     issuer: "KNAP",
     audience: "USER",
-  };
-  const payload = {
-    userId,
   };
 
   const token = jwt.sign(payload, secret, options);

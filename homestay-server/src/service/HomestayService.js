@@ -3,11 +3,7 @@ import * as bcrypt from "bcrypt";
 import { generateHomestayToken } from "./AuthService";
 import { BadRequestError, GeneralError } from "../helpers/GeneralError";
 
-let Homestay = db.Homestay;
-let Room = db.Room;
-let Service = db.Service;
-let Food = db.Food;
-let Attraction = db.Attraction;
+let { Homestay, Room, Service, Attraction, Review, Food } = db;
 
 /**
  * get homestay by email
@@ -31,32 +27,50 @@ async function getHomestayAccountByEmail(email) {
 export async function getHomestayByIdAsync(id) {
   try {
     let homestay = await Homestay.findOne({
+      attributes: {
+        exclude: ["password", "createdAt", "updatedAt"],
+      },
+
       where: { homestayId: id },
       include: [
         {
           model: Room,
           as: "Rooms",
+          attributes: {
+            exclude: ["homestayId"],
+          },
         },
         {
           model: Food,
           as: "Food",
+          attributes: {
+            exclude: ["homestayId"],
+          },
         },
         {
           model: Attraction,
           as: "Attractions",
+          attributes: {
+            exclude: ["homestayId"],
+          },
         },
         {
           model: Service,
           as: "Services",
+          attributes: {
+            exclude: ["homestayId"],
+          },
         },
         {
           model: Review,
           as: "Reviews",
+          attributes: {
+            exclude: ["homestayId"],
+          },
         },
       ],
     });
-    delete homestay.dataValues.password;
-    return homestay.dataValues;
+    return homestay;
   } catch (err) {
     throw err;
   }

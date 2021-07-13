@@ -31,7 +31,11 @@ export async function loginAsync(email, password) {
       throw new UnAuthorizedError("Password donot Match");
     }
 
-    let token = generateUserToken(validUser.id);
+    const payload = {
+      id: validUser.userId,
+    };
+
+    let token = generateUserToken(payload);
 
     validUser.password = undefined;
 

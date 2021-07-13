@@ -5,6 +5,7 @@ import { validateRegisterHomestay } from "../schems/homestayScheme";
 
 var router = express.Router();
 
+// public routers
 router.post("/login", HomestayController.homestayLogin);
 
 router.post(
@@ -14,5 +15,9 @@ router.post(
 );
 
 router.get("/:id", HomestayController.getHomestayAsync);
+
+// private routes
+
+// update homestay info
 
 module.exports = router;

@@ -1,7 +1,6 @@
 import * as UserService from "../service/UserService";
 
 export const login = function (req, res, next) {
-  console.log(req.body);
   UserService.loginAsync(req.body.email, req.body.password)
     .then((loginResponse) => res.json(loginResponse))
     .catch((err) => next(err));

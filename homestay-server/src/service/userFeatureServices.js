@@ -22,9 +22,9 @@ export async function getBookmarksByUserId(userId) {
   }
 }
 
-export async function addBookMarks(bookMarkData) {
+export async function addBookMarks(userId, bookMarkData) {
   try {
-    let bookmark = await Bookmark.create(bookMarkData);
+    let bookmark = await Bookmark.create({ ...bookMarkData, userId });
     return bookmark;
   } catch (err) {
     throw err;

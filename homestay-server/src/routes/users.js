@@ -17,7 +17,11 @@ router.put("/:id", authenticate, validateUpdateUser, updateProfile);
 /* User features route */
 router.post("/addBookmark", authenticate, UserFeatureController.addBookmarks);
 
+//remove bookmark
+
 router.post("/insertReview", authenticate, UserFeatureController.insertReview);
+
+//remove review
 
 router.post(
   "/createCheckIn",
