@@ -21,11 +21,12 @@ const CREATE_USER_SCHEMA = joi.object().keys({
 });
 
 export function validateCreateUser(req, res, next) {
-  try {
-    joi.assert(res.body, CREATE_USER_SCHEMA);
+  const { error, value } = CREATE_USER_SCHEMA.validate(req.body);
+  console.log(error);
+  if (error) {
+    next(error);
+  } else {
     next();
-  } catch (err) {
-    next(err);
   }
 }
 
