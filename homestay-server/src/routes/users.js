@@ -2,8 +2,10 @@ var express = require("express");
 
 import { authenticate } from "../middlewares/authentication";
 import * as UserFeatureController from "../controllers/UserFeaturesController";
+import * as UserBookMarkController from "../controllers/userFeatures.js/UserBookmarController";
+import * as UserReviewController from "../controllers/userFeatures.js/UserReviewController";
 import { updateProfile } from "../controllers/UserController";
-import { validateUpdateUser } from "../schems/userSchema";
+import { validateUpdateUser } from "../schemas/userSchema";
 
 var router = express.Router();
 
@@ -14,12 +16,23 @@ router.get("/", function (req, res, next) {
 
 router.put("/:id", authenticate, validateUpdateUser, updateProfile);
 
-/* User features route */
-router.post("/addBookmark", authenticate, UserFeatureController.addBookmarks);
+/* USER BOOKMARK ROUTES */
+router.get(
+  "/getBookmarks/:userId",
+  authenticate,
+  UserBookMarkController.getBookmarks
+);
 
-//remove bookmark
+router.post("/addBookmark", authenticate, UserBookMarkController.addBookmarks);
 
-router.post("/insertReview", authenticate, UserFeatureController.insertReview);
+router.delete(
+  "/removeBookmark/:id",
+  authenticate,
+  UserBookMarkController.removeBookmark
+);
+
+/*USER REVIEW ROUTES*/
+router.post("/insertReview", authenticate, UserReviewController.insertReview);
 
 //remove review
 
@@ -29,9 +42,4 @@ router.post(
   UserFeatureController.createCheckIn
 );
 
-router.get(
-  "/getBookmarks/:userId",
-  authenticate,
-  UserFeatureController.getBookmarks
-);
 module.exports = router;

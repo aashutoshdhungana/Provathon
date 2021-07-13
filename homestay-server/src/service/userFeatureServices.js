@@ -1,4 +1,5 @@
-import { GeneralError } from "../helpers/GeneralError";
+import { bool } from "joi";
+import { BadRequestError, GeneralError } from "../helpers/GeneralError";
 import db from "../models/index";
 
 const { Users, Bookmark, Review, Homestay } = db;
@@ -7,7 +8,7 @@ export async function getBookmarksByUserId(userId) {
   try {
     let bookMarkList = await Bookmark.findAll({
       where: {
-        userId: userId,
+        userId,
       },
 
       include: [
@@ -22,13 +23,47 @@ export async function getBookmarksByUserId(userId) {
   }
 }
 
-export async function addBookMarks(userId, bookMarkData) {
+export async function addBookMarks(userId, bookmarkData) {
   try {
-    let bookmark = await Bookmark.create({ ...bookMarkData, userId });
+    console.log(`adding for ${userId} ${bookmarkData.homestayId}`);
+    let [bookmark, didCreate] = await Bookmark.findOrCreate({
+      where: {
+        ...bookmarkData,
+        userId,
+      },
+      default: {
+        ...bookmarkData,
+        userId,
+      },
+    });
     return bookmark;
   } catch (err) {
     throw err;
   }
+}
+
+export async function removeBookmark(userId, bookmarkId) {
+  console.log(`finding bookmark ${userId} ${bookmarkId} `);
+  try {
+    //check if bookmark exists
+    const bookmark = await Bookmark.findOne({
+      where: {
+        bookmarkId,
+        userId,
+      },
+    });
+
+    if (!bookmark) {
+      throw new BadRequestError("Bookmark does not exists");
+    }
+
+    await bookmark.destroy();
+  } catch (err) {
+    throw err;
+  }
+  return {
+    message: "bookmark  deleted!",
+  };
 }
 
 export async function insertReview(reviewData) {

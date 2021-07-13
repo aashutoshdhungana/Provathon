@@ -137,7 +137,7 @@ export async function registerHomestayAsync(homestayData) {
   let attractions = [];
 
   try {
-    if (!getByEmail(email)) {
+    if (!getHomestayAccountByEmail(email)) {
       throw new BadRequestError("Homestay already registered with this email");
     }
 

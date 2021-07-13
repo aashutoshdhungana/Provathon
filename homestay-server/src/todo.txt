@@ -1,0 +1,4 @@
+-->> change addBookmark route 
+    ->should get array of homestayIds instead 
+      of object having single key of homestayId
+-->>

@@ -1,7 +1,7 @@
 var express = require("express");
 
 import * as HomestayController from "../controllers/HomestayController";
-import { validateRegisterHomestay } from "../schems/homestayScheme";
+import { validateRegisterHomestay } from "../schemas/homestaySchema";
 
 var router = express.Router();
 
