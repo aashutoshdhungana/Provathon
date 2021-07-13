@@ -1,11 +1,23 @@
-var express = require('express');
-import * as HomestayController from '../controllers/HomestayController'
+var express = require("express");
+
+import * as HomestayController from "../controllers/HomestayController";
+import { validateRegisterHomestay } from "../schemas/homestaySchema";
+
 var router = express.Router();
 
-router.post('/login', HomestayController.homestayLogin);
+// public routers
+router.post("/login", HomestayController.homestayLogin);
 
-router.post('/register', HomestayController.homestayRegister);
+router.post(
+  "/register",
+  validateRegisterHomestay,
+  HomestayController.homestayRegister
+);
 
-router.get('/:id', HomestayController.getHomestayAsync);
+router.get("/:id", HomestayController.getHomestayAsync);
+
+// private routes
+
+// update homestay info
 
 module.exports = router;

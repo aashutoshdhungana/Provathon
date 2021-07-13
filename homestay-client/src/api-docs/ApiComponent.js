@@ -10,6 +10,7 @@ import {
   login,
 } from "./services/index_endpoints_services";
 import { _register, _login } from "./api_datas/index_routes_data";
+import { _ } from "./api_datas/users_endpoints_data";
 
 const methods = {
   get: "get",
@@ -30,7 +31,7 @@ export default class ApiComponent extends Component {
   onFetchIndex = async () => {
     try {
       const data = await fetchIndex();
-      this.setState(() => ({ index: 1, response: data }));
+      this.setState(() => ({ index: 11, response: data }));
     } catch (err) {
       console.log(err);
     }
@@ -47,7 +48,7 @@ export default class ApiComponent extends Component {
 
     try {
       const response = await registerUser(data);
-      this.setState(() => ({ index: 2, response: response }));
+      this.setState(() => ({ index: 12, response: response }));
     } catch (err) {
       console.log(err);
     }
@@ -60,19 +61,23 @@ export default class ApiComponent extends Component {
     };
     try {
       const response = await login(data);
-      this.setState(() => ({ index: 3, response: response }));
+      this.setState(() => ({ index: 13, response: response }));
     } catch (err) {
       console.log(err);
     }
   };
+
+  onAddBookmard = () => {};
 
   render() {
     return (
       <div>
         <h1>Checking api......</h1>
 
+        {/** USER ROUTES  */}
+
         <section className="index">
-          <h2>Index routes</h2>
+          <h2>Index routes : / </h2>
 
           <div className="api-item">
             <ApiItem method={methods.get} url="/" onFetch={this.onFetchIndex}>
@@ -81,7 +86,7 @@ export default class ApiComponent extends Component {
               </div>
             </ApiItem>
             <div className="json">
-              {this.state.index === 1 ? (
+              {this.state.index === 11 ? (
                 <div>{JSON.stringify(this.state.response)}</div>
               ) : (
                 ""
@@ -101,7 +106,7 @@ export default class ApiComponent extends Component {
               />
             </ApiItem>
             <div>
-              {this.state.index === 2 ? (
+              {this.state.index === 12 ? (
                 <div>{JSON.stringify(this.state.response)}</div>
               ) : (
                 ""
@@ -121,7 +126,33 @@ export default class ApiComponent extends Component {
               />
             </ApiItem>
             <div>
-              {this.state.index === 3 ? (
+              {this.state.index === 13 ? (
+                <div>{JSON.stringify(this.state.response)}</div>
+              ) : (
+                ""
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/** USER ROUTES  */}
+
+        <section>
+          <h2>users routes : /users</h2>
+
+          <div className="api-item">
+            <ApiItem
+              method={methods.post}
+              url="/addBookmark"
+              onFetch={this.onAddBookmard}
+            >
+              <Description
+                description={_login.description}
+                params={_login.params}
+              />
+            </ApiItem>
+            <div className="json">
+              {this.state.index === 21 ? (
                 <div>{JSON.stringify(this.state.response)}</div>
               ) : (
                 ""
