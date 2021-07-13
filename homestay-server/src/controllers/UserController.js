@@ -12,3 +12,10 @@ export const register = function (req, res, next) {
     .then((registerResponse) => res.json(registerResponse))
     .catch((err) => next(err));
 };
+
+export const updateProfile = function (req, res, next) {
+  console.log(req.params.id, req.body);
+  UserService.updateProfile(req.params.id, req.body)
+    .then((updateResponse) => res.json(updateResponse))
+    .catch((err) => next(err));
+};

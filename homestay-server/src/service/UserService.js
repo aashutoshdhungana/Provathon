@@ -5,6 +5,21 @@ import { BadRequestError, UnAuthorizedError } from "../helpers/GeneralError";
 
 const User = db.User;
 
+async function getUserByEmail(email) {
+  try {
+    let user = await User.findOne({ where: { email: email } });
+    return user;
+  } catch (err) {
+    throw err;
+  }
+}
+
+/**
+ *
+ * @param {string} email
+ * @param {string} password
+ * @returns user detail with token if user found
+ */
 export async function loginAsync(email, password) {
   try {
     let validUser = await getUserByEmail(email);
@@ -30,6 +45,11 @@ export async function loginAsync(email, password) {
   }
 }
 
+/**
+ *
+ * @param {object} userData
+ * @returns creates user and returns user data
+ */
 export async function registerAsync(userData) {
   try {
     console.log(`Verigying if user with ${userData.email} exists...`);
@@ -50,10 +70,25 @@ export async function registerAsync(userData) {
   }
 }
 
-async function getUserByEmail(email) {
+export async function updateProfile(userId, updates) {
+  console.log(userId);
+  let updatedUser;
   try {
-    let user = await User.findOne({ where: { email: email } });
-    return user;
+    const user = await User.findOne({
+      where: {
+        userId,
+      },
+    });
+
+    if (user) {
+      updatedUser = await user.update({
+        ...updates,
+      });
+    }
+
+    return {
+      message: "User Updated!",
+    };
   } catch (err) {
     throw err;
   }
